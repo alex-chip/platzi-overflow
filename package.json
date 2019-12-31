@@ -1,0 +1,24 @@
+{
+  "name": "platzi-overflow",
+  "version": "0.0.1",
+  "description": "Un sitio como StackOverflow",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --ext js,hbs",
+    "lint": "standard",
+    "lint-fix": "standard --fix",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "@alexchip42 <alexchip32@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.2",
+    "standard": "^14.3.1"
+  },
+  "dependencies": {
+    "@hapi/hapi": "^18.4.0",
+    "@hapi/inert": "^5.2.2",
+    "@hapi/vision": "^5.5.4",
+    "handlebars": "^4.5.3"
+  }
+}
