@@ -110,4 +110,5 @@ temp/
 
 .DS_Store
 .vscode
+config
 # End of https://www.gitignore.io/api/node
