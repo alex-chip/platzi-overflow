@@ -111,4 +111,5 @@ temp/
 .DS_Store
 .vscode
 config
+.idea/
 # End of https://www.gitignore.io/api/node
