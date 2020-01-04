@@ -20,6 +20,15 @@ async function init () {
     await server.register(inert)
     await server.register(vision)
 
+    // Configurar el servidor para validar una session con una cookie de Hapi
+    server.state('user', {
+      // el periodo de validez se mide en milisegundos
+      ttl: 1000 * 60 * 60 * 24 * 7,
+      // parametro para hacer seguro la cookie
+      isSecure: process.env.NODE_ENV === 'prod',
+      // tipo de encoding para la cookie
+      encoding: 'base64json'
+    })
     server.views({
       engines: {
         hbs: handlebars
