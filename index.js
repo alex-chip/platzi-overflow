@@ -49,4 +49,12 @@ async function init () {
   console.log(`Servidor corriendo en: ${server.info.uri}`)
 }
 
+process.on('unhandledRejection', err => {
+  console.error('UnhandledRejection', err.message, err)
+})
+
+process.on('unhandledException', err => {
+  console.error('unhandleException', err.message, err)
+})
+
 init()
