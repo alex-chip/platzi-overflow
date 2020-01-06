@@ -55,12 +55,19 @@ module.exports = [
   },
   {
     method: 'GET',
-    path: '/{param*}',
+    path: '/assets/{param*}',
     handler: {
       directory: {
         path: '.',
         index: ['index.html']
       }
     }
+  },
+  {
+    // se declara en un arreglo para que acepte varias peticiones
+    method: ['GET', 'POST'],
+    // en el path se usa el comodin {any*} para que acepte cualquiera
+    path: '/{any*}',
+    handler: site.notFound
   }
 ]
