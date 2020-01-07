@@ -29,9 +29,19 @@ function notFound (req, h) {
   return h.view('404', {}, { layout: 'error-layout' }).code(404)
 }
 
+// funcion para controlar el error si no se encuentra un archivo en los assets del proyecto
+function fileNotFound (req, h) {
+  const response = req.response
+  if (response.isBoom && response.output.statusCode === 404) {
+    return h.view('404', {}, { layout: 'error-layout' }).code(404)
+  }
+  return h.continue
+}
+
 module.exports = {
   register,
   login,
   notFound,
+  fileNotFound,
   home
 }

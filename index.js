@@ -4,6 +4,7 @@ const handlebars = require('handlebars')
 const vision = require('@hapi/vision')
 const path = require('path')
 const routes = require('./routes')
+const site = require('./controllers/site')
 
 const server = Hapi.Server({
   port: process.env.PORT || 3000,
@@ -39,8 +40,9 @@ async function init () {
       layoutPath: 'views'
     })
 
+    server.ext('onPreResponse', site.fileNotFound)
     server.route(routes)
-    server.start()
+    await server.start()
   } catch (error) {
     console.error(error)
     process.exit(1)
