@@ -37,6 +37,11 @@ module.exports = [
   },
   {
     method: 'GET',
+    path: '/question/{id}',
+    handler: site.viewQuestion
+  },
+  {
+    method: 'GET',
     path: '/logout',
     handler: user.logout
   },
@@ -72,6 +77,20 @@ module.exports = [
       }
     },
     handler: question.createQuestion
+  },
+  {
+    path: '/answer-question',
+    method: 'POST',
+    options: {
+      validate: {
+        payload: Joi.object({
+          answer: Joi.string().required(),
+          id: Joi.string().required()
+        }),
+        failAction: user.failValidation
+      }
+    },
+    handler: question.answerQuestion
   },
   {
     method: 'GET',

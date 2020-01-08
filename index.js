@@ -6,6 +6,11 @@ const path = require('path')
 const routes = require('./routes')
 const site = require('./controllers/site')
 
+handlebars.registerHelper('answerNumber', (answers) => {
+  const keys = Object.keys(answers).length
+  return keys
+})
+
 const server = Hapi.Server({
   port: process.env.PORT || 3000,
   host: 'localhost',
