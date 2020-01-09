@@ -42,7 +42,7 @@ class Questions {
     for (let key in answers) {
       answers[key].correct = (key === answerId)
     }
-    const update = await this.collection.child(questionId).child('answers').update(this.answers)
+    const update = await this.collection.child(questionId).child('answers').update(answers)
     return update
   }
 }
