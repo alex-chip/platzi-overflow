@@ -1,15 +1,11 @@
 const Hapi = require('@hapi/hapi')
 const inert = require('@hapi/inert')
-const handlebars = require('handlebars')
+const methods = require('./lib/methods')
+const handlebars = require('./lib/helpers')
 const vision = require('@hapi/vision')
 const path = require('path')
 const routes = require('./routes')
 const site = require('./controllers/site')
-
-handlebars.registerHelper('answerNumber', (answers) => {
-  const keys = Object.keys(answers).length
-  return keys
-})
 
 const server = Hapi.Server({
   port: process.env.PORT || 3000,
@@ -25,6 +21,9 @@ async function init () {
   try {
     await server.register(inert)
     await server.register(vision)
+
+    // registrar el metodo de servidor
+    server.method('setAnswerRight', methods.setAnswerRight)
 
     // Configurar el servidor para validar una session con una cookie de Hapi
     server.state('user', {
