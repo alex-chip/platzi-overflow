@@ -7,6 +7,13 @@ module.exports = [
   {
     method: 'GET',
     path: '/',
+    // agregando a la memoria cache la ruta home
+    options: {
+      cache: {
+        expiresIn: 1000 * 30,
+        privacy: 'private'
+      }
+    },
     handler: site.home
   },
 

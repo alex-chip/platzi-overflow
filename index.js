@@ -24,6 +24,13 @@ async function init () {
 
     // registrar el metodo de servidor
     server.method('setAnswerRight', methods.setAnswerRight)
+    // cache del Home por 1 minuto
+    server.method('getLast', methods.getLast, {
+      cache: {
+        expiresIn: 1000 * 60,
+        generateTimeout: 2000
+      }
+    })
 
     // Configurar el servidor para validar una session con una cookie de Hapi
     server.state('user', {
