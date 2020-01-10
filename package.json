@@ -24,6 +24,7 @@
     "bcrypt": "^3.0.7",
     "firebase": "^7.6.1",
     "firebase-admin": "^8.9.0",
-    "handlebars": "^4.5.3"
+    "handlebars": "^4.5.3",
+    "uuid": "^3.3.3"
   }
 }
